@@ -236,6 +236,24 @@
         <div id = "Projects" class="projects-title">
           <h2 class="title">Projects</h2>
         </div>
+
+        <div class="pro-project-card pro-scroll-anim">
+          <img src="img/Projects/motion.jpg" alt="Navigation" class="pro-project-image">
+          <div class="pro-project-content">
+            <h2 class="pro-project-title">Motion Tracker</h2>
+            <p class="pro-project-description">This project was my first step into Embedded Operating Systems, 
+              specifically Embedded Linux, with the Yocto project as my entry point. 
+              I started by learning key aspects of Linux programming, including the Compilation Toolchain, 
+              Debugging, Cross-Compiling, and Makefiles. Building on that foundation, I developed a motion 
+              tracker using a custom Linux image for Rasbperry Pi 4 micrprocessor, optimized for minimal resource consumption and the necessary 
+              modules and drivers. I authored Yocto recipes, created a custom layer, and cross-compiled the 
+              kernel module for the MPU6050 IMU, integrating it into the image. I also set up a bash script to 
+              launch it as a service at boot time, achieving a plug-and-play experience. This project enhanced 
+              my understanding of Embedded Linux, Yocto, Makefiles, and hardware interfacing, 
+              such as working with the MPU6050 via I2C for data reading and logging.</p>
+          </div>
+        </div>
+
         <div class="pro-project-card pro-scroll-anim">
           <img src="img/Projects/robot.jpg" alt="Eurobot" class="pro-project-image">
           <div class="pro-project-content">
@@ -264,22 +282,7 @@
           </div>
         </div>
 
-        <div class="pro-project-card pro-scroll-anim">
-          <img src="img/Projects/motion.jpg" alt="Navigation" class="pro-project-image">
-          <div class="pro-project-content">
-            <h2 class="pro-project-title">Motion Tracker</h2>
-            <p class="pro-project-description">This project was my first step into Embedded Operating Systems, 
-              specifically Embedded Linux, with the Yocto project as my entry point. 
-              I started by learning key aspects of Linux programming, including the Compilation Toolchain, 
-              Debugging, Cross-Compiling, and Makefiles. Building on that foundation, I developed a motion 
-              tracker using a custom Linux image for Rasbperry Pi 4 micrprocessor, optimized for minimal resource consumption and the necessary 
-              modules and drivers. I authored Yocto recipes, created a custom layer, and cross-compiled the 
-              kernel module for the MPU6050 IMU, integrating it into the image. I also set up a bash script to 
-              launch it as a service at boot time, achieving a plug-and-play experience. This project enhanced 
-              my understanding of Embedded Linux, Yocto, Makefiles, and hardware interfacing, 
-              such as working with the MPU6050 via I2C for data reading and logging.</p>
-          </div>
-        </div>
+        
       </div>
       <!-- Add more projects here -->
     </section>
@@ -549,12 +552,10 @@
           <div class="about-social-list">
             <div class="social-links-row">
               <a href="https://github.com/AKhadhraoui47">
-                <button type="button">
                   <img
                     src="img/social_icons/github.svg"
                     alt=""
                   />
-                </button>
               </a>
 
               <a href="https://www.linkedin.com/in/mohamed-bilel-khadhraoui/">
@@ -563,7 +564,7 @@
                   alt=""
                 />
               </a>
-              
+
               <a href="mailto:mohamedbilel.khadhraoui@insat.ucar.tn">
                 <img src="img/social_icons/gmail.svg" alt="Gmail Icon" />
               </a>
