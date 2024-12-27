@@ -16,7 +16,7 @@
 	width: 550px; /* Increased width for larger panels */
 	height: 450px; /* Increased height for larger panels */
 	text-align: center;
-	background-color: rgba(56, 55, 55, 0.9); /* Black shade with transparency */
+	background-color: #480101; /* Black shade with transparency */
 	border-radius: 0px;
 	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 	padding: 2rem; /* Increased padding */
@@ -29,7 +29,8 @@
   
   /* Hover Effect - Slightly Scale Up the Panel */
   .achievement-panel:hover {
-	transform: scale(1.05); /* Zoom-in effect */
+	transform: scale(1.00); /* Zoom-in effect */
+	box-shadow: 0 10px 20px rgba(113, 111, 111, 0.7);
   }
   
   /* Adjust image size */

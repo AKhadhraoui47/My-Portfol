@@ -1,0 +1,62 @@
+.pro-projects-section {
+    padding: 50px;
+}
+
+.pro-project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #480101;
+    border: 2px solid #480101;
+    border-radius: 0px;
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pro-project-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(113, 111, 111, 0.7);
+}
+
+.pro-project-image {
+    width: 100%;
+    max-height: 600px; /* Limit the maximum height of the image */
+    aspect-ratio: 16 / 9; /* Maintains a fixed aspect ratio */
+    object-fit: cover; /* Ensures the image is fully visible within the container */
+}
+
+.pro-project-content {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+}
+
+.pro-project-title {
+    font-size: 3em; /* Increased font size for the title */
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.pro-project-description {
+    font-size: 1.5em; /* Increased font size for the description */
+    line-height: 1.8; /* Increased line height for better readability */
+    color: white;
+}
+
+.pro-scroll-anim {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.pro-scroll-anim.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

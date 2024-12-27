@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/media.css" />
     <link rel="stylesheet" href="css/add.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/projects.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
@@ -102,14 +102,9 @@
                 </a>
 
                 
-
-                <!--
-                <a href="#!">
-                  <img
-                    src="img/social_icons/gmail.svg"
-                    alt="https://www.instagram.com/mohamed_bilel_khadhraoui/"
-                /></a>
-                -->
+                <a href="mailto:mohamedbilel.khadhraoui@insat.ucar.tn">
+                  <img src="img/social_icons/gmail.svg" alt="Gmail Icon" />
+                </a>
                 
                 <a href="https://www.instagram.com/mohamed_bilel_khadhraoui/">
                   <img
@@ -141,8 +136,6 @@
         </div>
       </div>
     </section>
-
-    
 
     <section id="Experience" class="projects">
       <div class="container container-lg">
@@ -238,6 +231,59 @@
       </div>
     </section>
 
+    <section id="Projects" class="projects">
+      <div class="container container-lg">
+        <div id = "Projects" class="projects-title">
+          <h2 class="title">Projects</h2>
+        </div>
+        <div class="pro-project-card pro-scroll-anim">
+          <img src="img/Projects/robot.jpg" alt="Eurobot" class="pro-project-image">
+          <div class="pro-project-content">
+            <h2 class="pro-project-title">Eurobot</h2>
+            <p class="pro-project-description">I contributed to the design and simulation of autonomous 
+              mechanisms using SolidWorks, followed by the realization and implementation of 
+              these mechanisms in two autonomous robots, each with distinct tasks. Additionally, 
+              I developed the software to control servos, pumps, and other components, ensuring 
+              synchronization of the mechanisms. This was achieved by creating a complex state machine 
+              in Python, which was implemented as a Node within the Robot Operating System (ROS) 
+              ecosystem running on the Raspberry Pi 4 to manage the robot’s operations.</p>
+          </div>
+        </div>
+  
+        <div class="pro-project-card pro-scroll-anim">
+          <img src="img/Projects/nav.jpg" alt="Navigation" class="pro-project-image">
+          <div class="pro-project-content">
+            <h2 class="pro-project-title">Differential Wheel Robot Navigation System</h2>
+            <p class="pro-project-description">Contributed to the development of a state-of-the-art navigation system by assembling 
+              a differential wheel robot integrated with a custom navigation framework, 
+              achieving a trapezoidal velocity profile of 1.8 m/s. Implemented on the STM32H745 MCU, 
+              the system utilized odometry and PID control to enhance maneuverability and precision. 
+              This solution ensured an error margin of less than 1 mm from the desired coordinates. 
+              Extensive research and documentation drove this work, resulting in a high-performance, 
+              reliable system for precise navigation.</p>
+          </div>
+        </div>
+
+        <div class="pro-project-card pro-scroll-anim">
+          <img src="img/Projects/motion.jpg" alt="Navigation" class="pro-project-image">
+          <div class="pro-project-content">
+            <h2 class="pro-project-title">Motion Tracker</h2>
+            <p class="pro-project-description">This project was my first step into Embedded Operating Systems, 
+              specifically Embedded Linux, with the Yocto project as my entry point. 
+              I started by learning key aspects of Linux programming, including the Compilation Toolchain, 
+              Debugging, Cross-Compiling, and Makefiles. Building on that foundation, I developed a motion 
+              tracker using a custom Linux image for Rasbperry Pi 4 micrprocessor, optimized for minimal resource consumption and the necessary 
+              modules and drivers. I authored Yocto recipes, created a custom layer, and cross-compiled the 
+              kernel module for the MPU6050 IMU, integrating it into the image. I also set up a bash script to 
+              launch it as a service at boot time, achieving a plug-and-play experience. This project enhanced 
+              my understanding of Embedded Linux, Yocto, Makefiles, and hardware interfacing, 
+              such as working with the MPU6050 via I2C for data reading and logging.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Add more projects here -->
+    </section>
+
     <section id="Digital Creation" class="projects">
       <div class="container container-lg">
         <div class="projects-title">
@@ -274,7 +320,7 @@
               <img class="project-img" src="img/Digital Creation/son.png" alt="" />
               <div class="project-mask">
                 <div class="project-caption">
-                  <h5 class="white">Radio Presenter</h5>
+                  <h5 class="white">MAG-IT Radio Segment Presenter</h5>
                   <p class="white">SonFm | Aug 2024 - Sept 2024</p>
                 </div>
               </div>
@@ -310,87 +356,87 @@
           <div class="carousel-container">
             <div class="achievement-panel">
               <img src="img/Achievements/mediation.jpeg" alt="Achievement 1">
-              <h3><br>Eurobot 2023 Mediation Award</h3>
+              <h3 class="title"><br>Eurobot 2023 Mediation Award</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/ndc.jpeg" alt="Achievement 2">
-              <h3><br>Second Award at National Design Competition 7.0</h3>
+              <h3 class="title"><br>Second Award at National Design Competition 7.0</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/Ras_Odyssey.jpeg" alt="Achievement 3">
-              <h3><br>Third Award at RAS Odyssey Technical Challenge</h3>
+              <h3 class="title"><br>Third Award at RAS Odyssey Technical Challenge</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/qualif.jpeg" alt="Achievement 4">
-              <h3><br>Third Award at Eurobot 2023 National Qualifiers</h3>
+              <h3 class="title"><br>Third Award at Eurobot 2023 National Qualifiers</h3>
             </div>
             <!-- Additional panels to create seamless loop -->
             <div class="achievement-panel">
               <img src="img/Achievements/Wie.jpeg" alt="Achievement 5">
-              <h3><br>Second Award at Wellness Innovation Bootcamp</h3>
+              <h3 class="title"><br>Second Award at Wellness Innovation Bootcamp</h3>
             </div>
             <!-- Duplicate panels for seamless loop -->
             <div class="achievement-panel">
               <img src="img/Achievements/mediation.jpeg" alt="Achievement 1">
-              <h3><br>Eurobot 2023 Mediation Award</h3>
+              <h3 class="title"><br>Eurobot 2023 Mediation Award</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/ndc.jpeg" alt="Achievement 2">
-              <h3><br>Second Award at National Design Competition 7.0</h3>
+              <h3 class="title"><br>Second Award at National Design Competition 7.0</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/Ras_Odyssey.jpeg" alt="Achievement 3">
-              <h3><br>Third Award at RAS Odyssey Technical Challenge</h3>
+              <h3 class="title"><br>Third Award at RAS Odyssey Technical Challenge</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/qualif.jpeg" alt="Achievement 4">
-              <h3><br>Third Award at Eurobot 2023 National Qualifiers</h3>
+              <h3 class="title"><br>Third Award at Eurobot 2023 National Qualifiers</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/Wie.jpeg" alt="Achievement 5">
-              <h3><br>Second Award at Wellness Innovation Bootcamp</h3>
+              <h3 class="title"><br>Second Award at Wellness Innovation Bootcamp</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/mediation.jpeg" alt="Achievement 1">
-              <h3><br>Eurobot 2023 Mediation Award</h3>
+              <h3 class="title"><br>Eurobot 2023 Mediation Award</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/ndc.jpeg" alt="Achievement 2">
-              <h3><br>Second Award at National Design Competition 7.0</h3>
+              <h3 class="title"><br>Second Award at National Design Competition 7.0</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/Ras_Odyssey.jpeg" alt="Achievement 3">
-              <h3><br>Third Award at RAS Odyssey Technical Challenge</h3>
+              <h3 class="title"><br>Third Award at RAS Odyssey Technical Challenge</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/qualif.jpeg" alt="Achievement 4">
-              <h3><br>Third Award at Eurobot 2023 National Qualifiers</h3>
+              <h3 class="title"><br>Third Award at Eurobot 2023 National Qualifiers</h3>
             </div>
             <!-- Additional panels to create seamless loop -->
             <div class="achievement-panel">
               <img src="img/Achievements/Wie.jpeg" alt="Achievement 5">
-              <h3><br>Second Award at Wellness Innovation Bootcamp</h3>
+              <h3 class="title"><br>Second Award at Wellness Innovation Bootcamp</h3>
             </div>
             <!-- Duplicate panels for seamless loop -->
             <div class="achievement-panel">
               <img src="img/Achievements/mediation.jpeg" alt="Achievement 1">
-              <h3><br>Eurobot 2023 Mediation Award</h3>
+              <h3 class="title"><br>Eurobot 2023 Mediation Award</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/ndc.jpeg" alt="Achievement 2">
-              <h3><br>Second Award at National Design Competition 7.0</h3>
+              <h3 class="title"><br>Second Award at National Design Competition 7.0</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/Ras_Odyssey.jpeg" alt="Achievement 3">
-              <h3><br>Third Award at RAS Odyssey Technical Challenge</h3>
+              <h3 class="title"><br>Third Award at RAS Odyssey Technical Challenge</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/qualif.jpeg" alt="Achievement 4">
-              <h3><br>Third Award at Eurobot 2023 National Qualifiers</h3>
+              <h3 class="title"><br>Third Award at Eurobot 2023 National Qualifiers</h3>
             </div>
             <div class="achievement-panel">
               <img src="img/Achievements/Wie.jpeg" alt="Achievement 5">
-              <h3><br>Second Award at Wellness Innovation Bootcamp</h3>
+              <h3 class="title"><br>Second Award at Wellness Innovation Bootcamp</h3>
             </div>
           </div>
         </div>
@@ -410,7 +456,7 @@
               <div class="project-mask">
                 <div class="project-caption">
                   <h5 class="white"> SonFm </h5>
-                  <p class="white"></p>
+                  <p class="white"> Click Here</p>
                 </div>
               </div>
             </a>
@@ -422,7 +468,7 @@
               <div class="project-mask">
                 <div class="project-caption">
                   <h5 class="white">STMicroelectronics</h5>
-                  <p class="white"></p>
+                  <p class="white">Click Here</p>
                 </div>
               </div>
             </a>
@@ -431,10 +477,6 @@
       </div>
     </section>
     
-    
-    
-    
-
     <section id="about" class="about">
       <div class="container">
         <div class="about-title">
@@ -458,6 +500,7 @@
           
     </section>
 
+    <!-- 
     <section id="contact" class="contact">
       <div class="container">
         <div class="contact-title">
@@ -497,6 +540,8 @@
         </div>
       </div>
     </section>
+    -->
+    
 
     <footer class="footer">
       <div class="container">
@@ -518,13 +563,10 @@
                   alt=""
                 />
               </a>
-              <!--
-              <a href="#!">
-                <img
-                  src="img/social_icons/gmail.svg"
-                  alt="https://www.instagram.com/mohamed_bilel_khadhraoui/"
-              /></a>
-              -->
+              
+              <a href="mailto:mohamedbilel.khadhraoui@insat.ucar.tn">
+                <img src="img/social_icons/gmail.svg" alt="Gmail Icon" />
+              </a>
               
               <a href="https://www.instagram.com/mohamed_bilel_khadhraoui/">
                 <img
