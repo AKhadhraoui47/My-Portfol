@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leave a Recommendation — MB.Khadhraoui</title>
+  <link rel="shortcut icon" href="img/mbk_logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 62.5%; scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f4f8ff;
+      color: #0d1b2a;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,87,255,0.1);
+      padding: 1.6rem 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar-logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0d1b2a;
+      letter-spacing: -0.02em;
+    }
+    .topbar-logo span { color: #0057FF; font-size: 2.8rem; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #0057FF;
+      transition: gap 0.2s ease;
+    }
+    .back-link:hover { gap: 1.2rem; }
+    .back-link svg { width: 1.6rem; height: 1.6rem; }
+
+    /* ── Page layout ── */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 3.2rem 8rem;
+    }
+
+    /* ── Section header ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0d1b2a;
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      font-size: 1.6rem;
+      color: #4a5568;
+      line-height: 1.7;
+    }
+    .title-underline {
+      display: block;
+      width: 6rem;
+      height: 4px;
+      background: linear-gradient(90deg, #0057FF, #00D4FF);
+      margin: 1.2rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── Form card ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid rgba(0,87,255,0.10);
+      border-radius: 18px;
+      padding: 4rem 4.5rem;
+      box-shadow: 0 4px 28px rgba(0,87,255,0.07);
+      margin-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0057FF, #00D4FF);
+    }
+
+    .form-group {
+      margin-bottom: 2.4rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0d1b2a;
+      margin-bottom: 0.9rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 1.4rem 1.8rem;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.5rem;
+      color: #0d1b2a;
+      background: #f7faff;
+      border: 1.5px solid rgba(0,87,255,0.18);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #0057FF;
+      box-shadow: 0 0 0 3px rgba(0,87,255,0.10);
+      background: #fff;
+    }
+    .form-group textarea { height: 15rem; line-height: 1.7; }
+
+    .char-count {
+      text-align: right;
+      font-size: 1.2rem;
+      color: #a0aec0;
+      margin-top: 0.5rem;
+    }
+    .char-count.warn { color: #e8303a; }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      height: 5.4rem;
+      padding: 0 3.6rem;
+      background: linear-gradient(135deg, #0057FF, #0099FF);
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 16px rgba(0,87,255,0.25);
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,87,255,0.35);
+    }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn svg { width: 2rem; height: 2rem; }
+
+    /* Success toast */
+    .toast {
+      display: none;
+      align-items: center;
+      gap: 1.2rem;
+      background: #f0fff4;
+      border: 1px solid #68d391;
+      border-radius: 10px;
+      padding: 1.6rem 2rem;
+      font-size: 1.4rem;
+      color: #276749;
+      font-weight: 500;
+      margin-top: 2rem;
+    }
+    .toast.show { display: flex; }
+    .toast svg { width: 2.2rem; height: 2.2rem; flex-shrink: 0; color: #38a169; }
+
+    /* ── Divider ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,87,255,0.2), transparent);
+      border: none;
+      margin: 5rem 0;
+    }
+
+    /* ── Approved recommendations list ── */
+    .recs-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .recs-header h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #0d1b2a;
+    }
+
+    .recs-empty {
+      text-align: center;
+      padding: 5rem 2rem;
+      color: #a0aec0;
+      font-size: 1.5rem;
+    }
+
+    .recs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
+      gap: 2.4rem;
+    }
+
+    .rec-card {
+      background: #fff;
+      border: 1px solid rgba(0,87,255,0.09);
+      border-radius: 14px;
+      padding: 3rem 3rem 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,87,255,0.05);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .rec-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,87,255,0.12);
+    }
+    .rec-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0057FF, #00D4FF);
+    }
+
+    /* Big quote mark */
+    .rec-card::after {
+      content: '"';
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 9rem;
+      line-height: 1;
+      color: rgba(0,87,255,0.06);
+      font-family: Georgia, serif;
+      pointer-events: none;
+    }
+
+    .rec-relation {
+      display: inline-block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0057FF;
+      margin-bottom: 1.5rem;
+    }
+
+    .rec-text {
+      font-size: 1.45rem;
+      line-height: 1.85;
+      color: #4a5568;
+      margin-bottom: 2.5rem;
+    }
+
+    .rec-footer {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      border-top: 1px solid rgba(0,87,255,0.08);
+      padding-top: 1.8rem;
+    }
+
+    .rec-avatar {
+      width: 4.4rem;
+      height: 4.4rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0057FF, #00D4FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .rec-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0d1b2a;
+    }
+    .rec-date {
+      font-size: 1.2rem;
+      color: #a0aec0;
+      margin-top: 0.2rem;
+    }
+
+    /* ── Admin Panel ── */
+    .admin-trigger {
+      display: block;
+      text-align: center;
+      margin-top: 6rem;
+      font-size: 1.2rem;
+      color: #cbd5e0;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .admin-trigger:hover { color: #a0aec0; }
+
+    .admin-panel {
+      display: none;
+      background: #0a0f2e;
+      border: 1px solid rgba(0,87,255,0.25);
+      border-radius: 14px;
+      padding: 3.5rem;
+      margin-top: 2rem;
+    }
+    .admin-panel.open { display: block; }
+
+    .admin-panel h3 {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .admin-panel p {
+      color: rgba(200,220,255,0.6);
+      font-size: 1.3rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .admin-login {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 2.4rem;
+      flex-wrap: wrap;
+    }
+    .admin-login input {
+      flex: 1;
+      min-width: 22rem;
+      padding: 1.2rem 1.6rem;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.4rem;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(0,87,255,0.3);
+      border-radius: 8px;
+      color: #fff;
+      outline: none;
+    }
+    .admin-login input:focus { border-color: #0057FF; }
+    .admin-login input::placeholder { color: rgba(255,255,255,0.35); }
+
+    .admin-btn {
+      padding: 1.2rem 2.4rem;
+      background: linear-gradient(135deg, #0057FF, #0099FF);
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .admin-btn:hover { opacity: 0.88; }
+
+    .admin-error {
+      color: #fc8181;
+      font-size: 1.3rem;
+      margin-bottom: 1.6rem;
+      display: none;
+    }
+    .admin-error.show { display: block; }
+
+    .admin-queue { display: none; }
+    .admin-queue.open { display: block; }
+
+    .queue-empty {
+      color: rgba(200,220,255,0.5);
+      font-size: 1.4rem;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .queue-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,87,255,0.2);
+      border-radius: 10px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 1.6rem;
+    }
+    .queue-item-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .queue-item-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .queue-item-relation {
+      font-size: 1.2rem;
+      color: #00D4FF;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .queue-item-text {
+      font-size: 1.35rem;
+      color: rgba(200,220,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+    .queue-item-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .approve-btn {
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, #38a169, #68d391);
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: opacity 0.2s;
+    }
+    .approve-btn:hover { opacity: 0.88; }
+
+    .reject-btn {
+      padding: 0.8rem 2rem;
+      background: rgba(232,48,58,0.15);
+      color: #fc8181;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border: 1px solid rgba(232,48,58,0.3);
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: background 0.2s;
+    }
+    .reject-btn:hover { background: rgba(232,48,58,0.25); }
+
+    .admin-logout-btn {
+      display: block;
+      margin-top: 2.4rem;
+      font-size: 1.2rem;
+      color: rgba(200,220,255,0.4);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: "Poppins", sans-serif;
+      transition: color 0.2s;
+    }
+    .admin-logout-btn:hover { color: rgba(200,220,255,0.7); }
+
+    /* ── Footer ── */
+    .rec-page-footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      font-size: 1.3rem;
+      color: #a0aec0;
+      border-top: 1px solid rgba(0,87,255,0.08);
+      margin-top: 6rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .page-wrap { padding: 3rem 2rem 6rem; }
+      .form-card { padding: 3rem 2.4rem; }
+      .section-header h1 { font-size: 3rem; }
+      .recs-grid { grid-template-columns: 1fr; }
+      .admin-login { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Top bar ── -->
+  <div class="topbar">
+    <a href="index.html" class="topbar-logo">MB<span>.</span>Khadhraoui</a>
+    <a href="index.html#Recommendations" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Back to Portfolio
+    </a>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- ── Form section ── -->
+    <div class="section-header">
+      <h1>Leave a Recommendation</h1>
+      <span class="title-underline"></span>
+      <p style="margin-top:2rem;">Worked with me, attended one of my workshops, or collaborated on a project?<br>Share your experience — it means a lot.</p>
+    </div>
+
+    <div class="form-card">
+      <form id="rec-form" novalidate>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+          <div class="form-group">
+            <label for="rec-name">Full Name *</label>
+            <input type="text" id="rec-name" placeholder="e.g. Sara Ben Ali" maxlength="80" required />
+          </div>
+          <div class="form-group">
+            <label for="rec-relation">Relation *</label>
+            <select id="rec-relation" required>
+              <option value="" disabled selected>Select context…</option>
+              <option value="Colleague">Colleague</option>
+              <option value="Internship Supervisor">Internship Supervisor</option>
+              <option value="Workshop Attendee">Workshop Attendee</option>
+              <option value="Project Collaborator">Project Collaborator</option>
+              <option value="Client">Client</option>
+              <option value="Classmate">Classmate</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rec-text">Your Recommendation *</label>
+          <textarea id="rec-text" placeholder="Describe your experience working with Bilel — what stood out, what you appreciated, what you achieved together…" maxlength="600" required></textarea>
+          <div class="char-count" id="char-count">0 / 600</div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Submit Recommendation
+        </button>
+
+        <div class="toast" id="toast">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Thank you! Your recommendation has been submitted and is pending review.
+        </div>
+      </form>
+    </div>
+
+    <!-- ── Approved recommendations ── -->
+    <hr class="section-divider" />
+
+    <div class="recs-header">
+      <h2>What People Say</h2>
+      <span class="title-underline" style="margin-top:1rem;"></span>
+    </div>
+
+    <div id="recs-grid" class="recs-grid">
+      <!-- Populated by JS -->
+    </div>
+    <div id="recs-empty" class="recs-empty" style="display:none;">
+      No approved recommendations yet — be the first!
+    </div>
+
+    <!-- ── Admin trigger (discreet) ── -->
+    <span class="admin-trigger" id="admin-trigger" title="Admin">· · ·</span>
+
+    <div class="admin-panel" id="admin-panel">
+      <h3>Admin Panel</h3>
+      <p>Enter your passphrase to review pending recommendations.</p>
+
+      <div id="admin-login-area">
+        <div class="admin-error" id="admin-error">Incorrect passphrase. Try again.</div>
+        <div class="admin-login">
+          <input type="password" id="admin-pass" placeholder="Enter passphrase…" />
+          <button class="admin-btn" id="admin-login-btn">Unlock</button>
+        </div>
+      </div>
+
+      <div class="admin-queue" id="admin-queue">
+        <div id="queue-list"><!-- populated by JS --></div>
+        <button class="admin-logout-btn" id="admin-logout-btn">Lock panel</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Footer ── -->
+  <div class="rec-page-footer">
+    &copy; 2024 Med Bilel Khadhraoui
+  </div>
+
+  <script src="js/recommend.js"></script>
+</body>
+</html>
