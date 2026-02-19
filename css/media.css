@@ -52,7 +52,7 @@ img {
     position: fixed;
     top: 0; bottom: 0; left: 0; right: 0;
     background: linear-gradient(160deg, #0033cc 0%, #0057FF 60%, #0099FF 100%);
-    z-index: 10;
+    z-index: 9999;
     padding: 8rem 4rem 4rem;
     display: flex;
     flex-direction: column;
@@ -75,7 +75,7 @@ img {
     font-weight: 700;
   }
   .nav-btn { position: absolute; z-index: 9; top: 3rem; right: 3rem; }
-  .nav.open .nav-btn { position: fixed; z-index: 20; }
+  .nav.open .nav-btn { position: fixed; z-index: 10000; }
   .nav.open .nav-btn img { filter: brightness(0) invert(1); }
   .header-nav { margin-bottom: 0; }
   .hero { padding-top: 16rem; }

@@ -1712,7 +1712,7 @@ h5 {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgb(255, 185, 185);
+  color: rgb(255, 181, 181);
   margin-top: 0.4rem;
 }
 
@@ -1721,4 +1721,11 @@ h5 {
   .dc-stat-number { font-size: 3.8rem; }
   .dc-stat + .dc-stat::before { display: none; }
   .dc-stats { gap: 0; row-gap: 1rem; }
+}
+
+/* When mobile nav is open, suppress header stacking context so
+   the fixed nav-list (z-index:9999) can escape it correctly */
+.nav-open-body .header-sticky {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }

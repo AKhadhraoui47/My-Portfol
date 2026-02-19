@@ -21,13 +21,15 @@ window.addEventListener("load", function () {
 function closeMenu() {
   nav.classList.remove("open");
   navBtnImg.src = "img/icons/open.svg";
+  document.body.classList.remove("nav-open-body");
 }
 
 navBtn.onclick = () => {
   if (nav.classList.toggle("open")) {
     navBtnImg.src = "img/icons/close.svg";
+    document.body.classList.add("nav-open-body");
   } else {
-    navBtnImg.src = "img/icons/open.svg";
+    closeMenu();
   }
 };
 
