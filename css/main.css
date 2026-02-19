@@ -1677,38 +1677,24 @@ h5 {
 .dc-stats {
   display: flex;
   justify-content: center;
-  gap: 0;
-  margin: 0 0 6rem;
+  gap: 5rem;
+  margin: 3rem 0 6rem;
   position: relative;
   z-index: 1;
-  flex-wrap: wrap;
 }
 
 .dc-stat {
   text-align: center;
-  padding: 2.8rem 5rem;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-/* Vertical dividers between stats */
-.dc-stat + .dc-stat::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 20%;
-  height: 60%;
-  width: 1px;
-  background: rgba(255, 85, 102, 0.25);
 }
 
 .dc-stat-number {
   display: block;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 800;
+  color: #fff;
   line-height: 1;
-  letter-spacing: -0.04em;
-  background: linear-gradient(135deg, #ffffff 30%, #FF8899 100%);
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #fff 30%, #ff0000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1722,12 +1708,12 @@ h5 {
 
 .dc-stat-label {
   display: block;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 200, 205, 0.6);
-  margin-top: 0.5rem;
+  color: rgb(255, 185, 185);
+  margin-top: 0.4rem;
 }
 
 @media (max-width: 720px) {
