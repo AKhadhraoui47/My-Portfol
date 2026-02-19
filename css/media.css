@@ -203,8 +203,11 @@ img {
   .achievements-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .achievement-card:nth-child(4) { grid-column: auto; margin-left: 0; }
-  .achievement-card:nth-child(5) { grid-column: auto; }
+  .achievement-card:nth-child(1),
+  .achievement-card:nth-child(2),
+  .achievement-card:nth-child(3),
+  .achievement-card:nth-child(4),
+  .achievement-card:nth-child(5) { grid-column: auto; margin-left: 0; }
   .achievements-stats { gap: 3rem; }
 }
 
