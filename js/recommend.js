@@ -17,6 +17,12 @@ const FORMSPREE_URL = "https://formspree.io/f/mpqjlgqv";
    Formspree email, paste it here, re-upload this file.
 ───────────────────────────────────────────── */
 const APPROVED_RECS = [
+  {
+    name:     "Mohamed Ali Bz",
+    relation: "Client",
+    text:     "Peace be upon you, readers. I have dealt with this esteemed gentleman for the first time in my life, and I guarantee that if I have a university project or even a personal one, he will be my first choice. I was honestly surprised by his professionalism, and he provided me with project updates every day or two. Gentlemen, I guarantee you satisfactory results if you wish to work with this gentleman.",
+    date:     "2026-04-13"
+  },
   /*
   {
     name:     "WHOAMI",
